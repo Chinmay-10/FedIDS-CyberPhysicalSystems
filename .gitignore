@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+data/nsl_kdd/*.txt
+data/cicids2017/*.csv
+*.pkl
