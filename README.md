@@ -134,5 +134,6 @@ Academic and research use only.
 ## Contact
 
 **Author:** Chinmay Patil
+
 **Domain:** Federated Learning · Privacy-Preserving ML · Cybersecurity
 
