@@ -11,10 +11,8 @@ class FederatedServer:
         self.test_loader = test_loader
         self.num_rounds = num_rounds
 
-    # ----------------------------------------------------------
     # AVERAGE ONLY CLASSIFIER LAYERS
-    # client_states is a list of classifier state_dicts
-    # ----------------------------------------------------------
+   
     def fedavg(self, client_states):
         new_state = copy.deepcopy(client_states[0])
         for key in new_state.keys():
@@ -22,10 +20,7 @@ class FederatedServer:
                 new_state[key] = new_state[key] + cs[key]
             new_state[key] = new_state[key] / len(client_states)
         return new_state
-
-    # ----------------------------------------------------------
-    # MAIN FL LOOP
-    # ----------------------------------------------------------
+-
     def train_federated(self, clients):
         comm_stats = []
         for r in range(self.num_rounds):
@@ -62,9 +57,6 @@ class FederatedServer:
             'comm_stats': comm_stats
         }
 
-    # ----------------------------------------------------------
-    # EVALUATE GLOBAL CLASSIFIER + LOCAL ENCODERS
-    # ----------------------------------------------------------
     def evaluate_global(self):
         self.global_model.eval()
 
