@@ -1,7 +1,7 @@
 # FedIDS
 ## Privacy-Preserving Personalized Federated Learning for Intrusion Detection Systems
 
-## 📌 Overview
+##  Overview
 
 **FedIDS** is a research-oriented Federated Learning (FL) framework designed for **Network Intrusion Detection Systems (NIDS)** that enables collaborative model training across multiple clients **without sharing raw network traffic data**.
 
@@ -18,7 +18,7 @@ This repository contains the **complete, frozen, and reproducible implementation
 
 ---
 
-## 🎯 Key Contributions
+##  Key Contributions
 
 - Personalized Federated Learning architecture robust to **Non-IID client data**
 - Differential Privacy with configurable **privacy budget (ε)**
@@ -29,7 +29,7 @@ This repository contains the **complete, frozen, and reproducible implementation
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 
@@ -50,7 +50,7 @@ FedIDS-Project/
 
 ---
 
-## 🧪 Experimental Design
+##  Experimental Design
 
 ### Learning Paradigms
 - Federated Averaging (FedAvg)
@@ -77,7 +77,7 @@ FedIDS-Project/
 
 ---
 
-## 📊 Key Findings
+##  Key Findings
 
 - FedAvg performs well only under IID and non-private settings
 - FedAvg becomes unstable under Non-IID data and strong privacy constraints
@@ -88,14 +88,14 @@ FedIDS-Project/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 ```bash
 pip install -r requirements.txt
 
 ---
 
-## ▶️ Running Experiments
+##  Running Experiments
 
 ```bash
 python main.py --rounds 20 --epsilon 0 --iid
@@ -106,7 +106,7 @@ python personalized_fl.py --rounds 20 --epsilon 5 --noniid
 
 ---
 
-## 📈 Generate Figures
+##  Generate Figures
 
 ```bash
 python generate_graphs.py
@@ -116,7 +116,7 @@ Graphs are saved in the `graphs/` directory.
 
 ---
 
-## 🔁 Reproducibility Notes
+##  Reproducibility Notes
 
 * Dependency versions are locked
 * Datasets are not included due to licensing
@@ -125,7 +125,7 @@ Graphs are saved in the `graphs/` directory.
 
 ---
 
-## 📄 License
+##  License
 
 Academic and research use only.
 
