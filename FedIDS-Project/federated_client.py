@@ -38,11 +38,11 @@ class FederatedClient:
                 loss.backward()
                 self.optimizer.step()
 
-    # Correct: returns flattened shared weights
+    # returns flattened shared weights
     def get_shared_state(self):
         return self.model.get_shared_state()
 
-    # Correct: loads only alignment + classifier
+    # loads only alignment + classifier
     def load_shared_state(self, shared_state):
         self.model.load_shared_state(shared_state)
 
