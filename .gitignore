@@ -21,3 +21,12 @@ clients_noniid/
 *.pkl
 *.npy
 *.log
+
+data/
+archive/
+experiments/results/fedavg/
+experiments/results/pfl/
+
+experiments/results/graphs/
+
+.ipynb_checkpoints/
