@@ -1,32 +1,34 @@
+# Virtual environments
 venv/
 .venv/
 
+# Python cache
 __pycache__/
 *.pyc
 
+# OS files
 .DS_Store
 Thumbs.db
 
+# IDEs
 .vscode/
 .idea/
 
-data/
-datasets/
-clients/
-clients_noniid/
-
-*.pt
-*.pth
-
-*.pkl
-*.npy
-*.log
-
+# Large / generated data
 data/
 archive/
-experiments/results/fedavg/
-experiments/results/pfl/
 
-experiments/results/graphs/
+# Experiment outputs (keep code, ignore results)
+experiments/results/
 
+# Models & checkpoints
+*.pt
+*.pth
+*.pkl
+*.npy
+
+# Logs
+*.log
+
+# Jupyter
 .ipynb_checkpoints/
