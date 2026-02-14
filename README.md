@@ -115,8 +115,6 @@ pip install -r requirements.txt
 
 ## 🏗️ Project Structure
 
-```
-
 FedIDS-Project/
 ├── main.py
 ├── personalized_fl.py
@@ -233,3 +231,4 @@ Academic and research use only.
 **Author:** Chinmay Patil
 
 **Domain:** Federated Learning · Privacy-Preserving ML · Cybersecurity
+
