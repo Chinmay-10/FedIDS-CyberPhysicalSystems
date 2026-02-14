@@ -1,31 +1,115 @@
-# FedIDS
-## Privacy-Preserving Personalized Federated Learning for Intrusion Detection Systems
+# 🚀 FedIDS: Fair & Privacy-Preserving Federated Intrusion Detection
 
-## 📌 Overview
-
-**FedIDS** is a research-oriented Federated Learning (FL) framework designed for **Network Intrusion Detection Systems (NIDS)** that enables collaborative model training across multiple clients **without sharing raw network traffic data**.
-
-The framework combines:
-- **Federated Averaging (FedAvg)** as a baseline
-- **Personalized Federated Learning (PFL)** for handling data heterogeneity
-- **Differential Privacy (DP)** for formal privacy guarantees
-
-FedIDS specifically addresses two critical real-world challenges in cybersecurity:
-1. **Non-IID data distributions across organizations**
-2. **Strict privacy requirements on sensitive network traffic**
-
-This repository contains the **complete, frozen, and reproducible implementation** used for experimental evaluation and research publication.
+**Privacy-Preserving Personalized Federated Learning for Robust Intrusion Detection under Non-IID Data**
 
 ---
 
-## 🎯 Key Contributions
+## 📌 Overview
 
-- Personalized Federated Learning architecture robust to **Non-IID client data**
-- Differential Privacy with configurable **privacy budget (ε)**
-- Extensive evaluation on **NSL-KDD** and **CICIDS2017** datasets
-- Privacy–utility tradeoff analysis
-- Communication-efficient training (~70 KB per client per round in PFL)
-- Stable convergence under heterogeneous and privacy-constrained settings
+FedIDS is a research-driven Federated Learning framework designed for real-world Network Intrusion Detection Systems (NIDS).
+
+Modern organizations cannot share raw network traffic due to privacy regulations and security risks. At the same time, data distributions across organizations are highly heterogeneous (Non-IID), causing standard federated learning methods to fail — especially for minority or difficult clients.
+
+FedIDS addresses this challenge by combining:
+
+- Federated Averaging (FedAvg) baseline  
+- Personalized Federated Learning (PFL)  
+- Differential Privacy (DP)  
+- Synergistic optimization (Focal Loss + Cosine LR Scheduling)
+
+The framework enables **collaborative learning without data sharing**, while maintaining stability and fairness under heterogeneous and privacy-constrained settings.
+
+---
+
+## 🎯 Key Technical Contributions
+
+### 1️⃣ Fairness-Oriented Personalized Federated Learning
+- Robust to severe Non-IID client distributions  
+- Client-specific encoders + shared classifier architecture  
+- Prevents minority clients from collapsing  
+
+### 2️⃣ Synergistic Optimization Discovery
+- Focal Loss alone improves aggregate accuracy but harms worst-case clients  
+- Cosine Annealing LR stabilizes optimization  
+- Their combination yields significant fairness gains  
+
+### 3️⃣ Major Performance Improvements
+
+On NSL-KDD:
+
+- **+20.49% overall accuracy improvement**  
+  (70.75% → 91.24%)
+
+- **+40.03% worst-case client improvement**  
+  (18.41% → 58.45%)
+
+- **47% reduction in client variance**
+
+This demonstrates that optimizing for fairness is as important as optimizing for global accuracy.
+
+### 4️⃣ Goldilocks Effect in Personalization
+
+We identify a non-monotonic relationship between personalization strength (λ) and fairness:
+
+- Weak λ → poor worst-case performance  
+- Strong λ → poor worst-case performance  
+- Optimal λ → dramatic fairness improvement  
+
+This highlights the importance of careful hyperparameter tuning in real-world federated systems.
+
+---
+
+## 🏗 Architecture
+
+The system separates:
+
+- Local client encoders (private)  
+- Shared alignment layer  
+- Global classifier  
+- Federated aggregation via FedAvg  
+- Differential Privacy applied to shared parameters only  
+
+This design preserves privacy while allowing collaborative attack pattern learning.
+
+---
+
+## 🧪 Experimental Setup
+
+### Datasets
+- NSL-KDD  
+- CICIDS2017  
+
+### Learning Paradigms
+- FedAvg  
+- Personalized FL  
+
+### Data Distributions
+- IID  
+- Non-IID (label-skewed partitions)  
+
+### Privacy Budgets
+- ε = 0  
+- ε = 1  
+- ε = 2  
+- ε = 5  
+
+### Evaluation Metrics
+- Accuracy  
+- Macro F1-score  
+- Worst-case client accuracy  
+- Variance across clients  
+- False Positive Rate (FPR)  
+- Communication cost  
+- Inference latency  
+- Privacy–Utility tradeoff  
+
+---
+
+## ⚙️ Installation
+
+```bash
+pip install -r requirements.txt
+
 
 ---
 
@@ -97,16 +181,21 @@ pip install -r requirements.txt
 
 ## ▶️ Running Experiments
 
-```bash
-python main.py --rounds 20 --epsilon 0 --iid
-python main.py --rounds 20 --epsilon 2 --noniid
-python personalized_fl.py --rounds 20 --epsilon 1 --iid
-python personalized_fl.py --rounds 20 --epsilon 5 --noniid
-```
+Baseline Federated Averaging
 
+```bash
+>>python main.py --rounds 20 --epsilon 0 --iid
+>>python main.py --rounds 20 --epsilon 2 --noniid
 ---
 
-## 📈 Generate Figures
+Personalized Federated Learning
+
+```bash
+>>python personalized_fl.py --rounds 20 --epsilon 1 --iid
+>>python personalized_fl.py --rounds 20 --epsilon 5 --noniid
+---
+
+## 📈 Generate Visualizations
 
 ```bash
 python generate_graphs.py
@@ -116,12 +205,20 @@ Graphs are saved in the `graphs/` directory.
 
 ---
 
-## 🔁 Reproducibility Notes
+🔁 Reproducibility
 
-* Dependency versions are locked
-* Datasets are not included due to licensing
-* Results correspond exactly to the paper experiments
-* Repository is version-tagged for reproducibility
+-Dependency versions specified
+-Deterministic data partitioning
+-Datasets not included due to licensing
+-Results correspond to reported experimental findings
+
+📌 Why This Project Matters
+
+-In real-world federated cybersecurity systems:
+-Clients do not have balanced data
+-Privacy constraints are strict
+-Optimizing only for global accuracy creates unfair systems
+-FedIDS demonstrates that fairness-aware optimization is essential for scalable, privacy-preserving collaborative intrusion detection.
 
 ---
 
@@ -134,5 +231,5 @@ Academic and research use only.
 ## Contact
 
 **Author:** Chinmay Patil
-**Domain:** Federated Learning · Privacy-Preserving ML · Cybersecurity
 
+**Domain:** Federated Learning · Privacy-Preserving ML · Cybersecurity
