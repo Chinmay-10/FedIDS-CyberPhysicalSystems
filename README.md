@@ -243,12 +243,27 @@ FedIDS demonstrates that fairness-aware optimization is essential for scalable, 
 
 ---
 
-# 📄 Research Paper
+# 📄 Research Publication
 
-Accepted at the 6th International Conference on Pervasive Computing and Social Networking (ICPCSN 2026).
+Accepted at the **6th International Conference on Pervasive Computing and Social Networking (ICPCSN 2026)**.
 
-Paper Title:
+### Paper Title
 **Privacy-Preserving Personalized Federated Learning for Heterogeneous Intrusion Detection Systems**
+
+📄 [Read Research Paper](research-paper.pdf)
+
+🎤 [View Conference Presentation](FedIDS-ICPCSN2026-Presentation.pdf)
+
+---
+
+# ⭐ Highlights
+
+- IEEE Conference Accepted Research
+- Federated Learning + Cybersecurity
+- Privacy-Preserving AI System
+- Fairness-Aware Distributed Learning
+- Real-world Non-IID Federated Evaluation
+- Personalized Federated Learning Framework
 
 ---
 
